@@ -11,6 +11,7 @@ html {
   font-size: 62.5%;
 }
 
+/* Pre-Loader Styles Start */
 .spinner-container {
   position: absolute;
   top: 0;
@@ -153,6 +154,58 @@ html {
     transform: rotate(360deg);
   }
 }
+/* Pre-Loader Styles End */
+
+/* Desktop Navbar Start */
+.close{
+  display: none;
+}
+#mobile-view{
+  display: none;
+}
+#desktop-view {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 20% 80%;
+  grid-gap: 2rem;
+  position: sticky;
+  background: #eee;
+  padding: 0.7rem 1rem;
+}
+.navbar-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.nav-menu {
+  margin: 1rem auto;
+  width: 100%;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-items {
+  margin: 1rem auto;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  transition: all 0.5s ease-in;
+}
+.nav-items a{
+  color: #000;
+  font-weight: bold;
+  transition: all 0.5s ease-in;
+}
+.nav-items:hover{
+  transform: scale(1.1);
+
+}
+.nav-items a:hover{
+  color: #de1011;
+}
+/* Desktop Navbar End */
 
 .container {
   display: none;
@@ -160,84 +213,6 @@ html {
 
 .display .container {
   display: block;
-}
-
-.hamburger-menu {
-  width: 3rem;
-  height: 3rem;
-  position: fixed;
-  top: 5rem;
-  right: 5rem;
-  z-index: 200;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  cursor: pointer;
-  transition: right 0.7s;
-}
-
-.change .hamburger-menu {
-  right: 33rem;
-}
-
-.line {
-  width: 100%;
-  height: 0.2rem;
-  background-color: #fff;
-  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
-}
-
-.change .line {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.change .line-1 {
-  transform: rotate(45deg) translate(0.3rem, 0.8rem);
-}
-
-.change .line-2 {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.change .line-3 {
-  transform: rotate(-45deg) translate(0.3rem, -0.8rem);
-}
-
-.hamburger-menu span {
-  position: absolute;
-  left: 5rem;
-  width: 10rem;
-  height: 4rem;
-  background-color: #f2d639;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #de1011;
-  font-weight: bold;
-  font-family: "Baloo Da 2", serif;
-  font-size: 1.6rem;
-  letter-spacing: 0.1rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.2s;
-}
-
-.change .hamburger-menu:hover span {
-  opacity: 1;
-  visibility: visible;
-}
-
-.hamburger-menu span::before {
-  content: "";
-  position: absolute;
-  border-left: 1rem solid transparent;
-  border-right: 1rem solid #f2d639;
-  border-bottom: 1rem solid transparent;
-  border-top: 1rem solid transparent;
-  top: 50%;
-  left: -2rem;
-  transform: translateY(-50%);
 }
 
 .header {
@@ -328,82 +303,6 @@ html {
     transform: translateY(0) rotateY(0);
     opacity: 1;
   }
-}
-
-.sidebar {
-  width: 40rem;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  right: -40rem;
-  background-color: #fff;
-  transition: right 0.5s;
-  z-index: 100;
-}
-
-.change .sidebar {
-  right: 0;
-}
-
-.menu {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.menu-item {
-  text-align: center;
-}
-
-.menu-link {
-  font-family: "Baloo Da 2", serif;
-  font-size: 4rem;
-  color: #555;
-  position: relative;
-}
-
-.menu-link::before {
-  content: attr(data-content);
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #de1011;
-  width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  transition: width 0.5s ease-in-out;
-}
-
-.menu-link:hover::before {
-  width: 100%;
-}
-
-.social-media {
-  position: absolute;
-  bottom: 3rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.social-media i {
-  font-size: 2.2rem;
-  margin: 3rem;
-  width: 4.5rem;
-  height: 4.5rem;
-  background-color: #f2d639;
-  color: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  transition: all 0.5s ease-in-out;
-}
-
-.social-media i:hover {
-  background-color: #de1011;
-  color: #fff;
 }
 
 .about-us {
@@ -980,6 +879,9 @@ html {
   html {
     font-size: 45%;
   }
+  .banner img{
+    max-width: 100%;
+  }
 
   .sidebar {
     width: 100%;
@@ -996,5 +898,170 @@ html {
 
   .footer {
     height: 18rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .close{
+    display: inline;
+  }
+  #mobile-view{
+    display: block;
+  }
+  #desktop-view{
+    display: none;
+  }
+  .hamburger-menu {
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    top: 5rem;
+    right: 5rem;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: right 0.7s;
+  }
+
+  .change .hamburger-menu {
+    right: 33rem;
+  }
+
+  .line {
+    width: 100%;
+    height: 0.2rem;
+    background-color: #fff;
+    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
+  }
+
+  .change .line {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .change .line-1 {
+    transform: rotate(45deg) translate(0.3rem, 0.8rem);
+  }
+
+  .change .line-2 {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .change .line-3 {
+    transform: rotate(-45deg) translate(0.3rem, -0.8rem);
+  }
+
+  .hamburger-menu span {
+    position: absolute;
+    left: 5rem;
+    width: 10rem;
+    height: 4rem;
+    background-color: #f2d639;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #de1011;
+    font-weight: bold;
+    font-family: "Baloo Da 2", serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+  }
+
+  .change .hamburger-menu:hover span {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .hamburger-menu span::before {
+    content: "";
+    position: absolute;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid #f2d639;
+    border-bottom: 1rem solid transparent;
+    border-top: 1rem solid transparent;
+    top: 50%;
+    left: -2rem;
+    transform: translateY(-50%);
+  }
+  .sidebar {
+    width: 40rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -40rem;
+    background-color: #fff;
+    transition: right 0.5s;
+    z-index: 100;
+  }
+
+  .change .sidebar {
+    right: 0;
+  }
+
+  .menu {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .menu-item {
+    text-align: center;
+    line-height: 7rem;
+  }
+
+  .menu-link {
+    font-family: "Baloo Da 2", serif;
+    font-size: 4rem;
+    color: #555;
+    position: relative;
+  }
+
+  .menu-link::before {
+    content: attr(data-content);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #de1011;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width 0.5s ease-in-out;
+  }
+
+  .menu-link:hover::before {
+    width: 100%;
+  }
+
+  .social-media {
+    position: absolute;
+    bottom: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-media i {
+    font-size: 2.2rem;
+    margin: 3rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: #f2d639;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .social-media i:hover {
+    background-color: #de1011;
+    color: #fff;
   }
 }
